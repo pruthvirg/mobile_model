@@ -66,11 +66,12 @@
           // document.getElementById("result").innerHTML = response
           document.getElementById("result").textContent = JSON.stringify(response, undefined, 2);
           const verified = response['verified']
-          console.log(verified)
-          console.log(typeof verified)
+          
 
           if (verified) {
           document.getElementById("proceedBtn").style.display = "block"
+          } else {
+            document.getElementById("failedVerification").style.display = "block"
           }
         })
     }
@@ -141,7 +142,7 @@
     <div class="row m-3">
       <div class="col-12">
         <ol>
-          <li>Upload your ID Card</li>
+          <li>Upload a picture of your ID Card with your face clearly displayed (Only .png format is allowed)</li>
         
         <!-- <div class="col-6">
               <input type='file' onchange="readURL(this);" />
@@ -152,7 +153,7 @@
           </div>
           <div class="col-10 my-3">
             <img id="blah"
-              src="https://image.shutterstock.com/image-vector/default-avatar-profile-icon-grey-600w-518740741.jpg"
+              src="https://www.svgrepo.com/show/220838/id-card.svg"
               alt="your image" width="200" height="200" /></br>
           </div>
           <li>Click "Turn on WebCam"</li>
@@ -195,6 +196,7 @@
           <pre id="result">
           </pre>
           <a href="#result" id="proceedBtn" style="display: none;" type="button" class="btn btn-success col-12" >Proceed to Exam</a>
+          <p id="failedVerification" style="display: none;" class="h3">Verification failed. Make sure your room is brightly lit and your face is shown clearly in the webcam. Reload the page and try again.</p>
         </div>
       </div>
 
