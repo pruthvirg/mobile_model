@@ -111,7 +111,7 @@
       // Prediction #1: run input through posenet
       // estimatePose can take in an image, video or canvas html element
       const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
-      console.log(pose);
+      console.log(pose.keypoints[10].x);
       const prediction = await model.predict(posenetOutput);
 
       let score1 = prediction[0].probability.toFixed(2) * 100
